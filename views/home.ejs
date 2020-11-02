@@ -1,0 +1,35 @@
+<%- include("./partials/header") -%>
+
+<center>
+  <h1>Welcome to Push notification.</h1>
+  <p hidden id='length'><%= table.length %></p>
+  <% for(var i=0;i<table.length;i++){ %>
+  <p hidden id='title<%= i %>'><%= table[i].title %></p>
+  <p hidden id='body<%= i %>'><%= table[i].body %></p>
+  <% } %>
+</center>
+<script>
+  function start() {
+    var i = 0;
+
+    function myLoop() {
+      setTimeout(function() {
+        Push.create(document.getElementById('title'.concat(String(i))).innerText, {
+          body: document.getElementById('body'.concat(String(i))).innerText,
+          icon: "https://toppng.com/uploads/preview/click-bell-icon-youtube-11549535067p8ug90rs63.png",
+          timeout: 3000,
+        });
+        i++;
+        if (i < document.getElementById('length').innerText) {
+          myLoop();
+        }
+      }, 4000)
+    }
+
+    myLoop();
+
+
+  }
+</script>
+
+<%- include("./partials/footer") -%>
