@@ -4,7 +4,7 @@ This is a simple application to demonstrate push notification using Node js, Pos
 ## How to make it work?
 Clone the project and in the terminal type the following to load the dependencies.
 ```bash 
-npm init
+npm install
 ```
 
 Then connect the app with postgress server and type the following to run the server locally.
